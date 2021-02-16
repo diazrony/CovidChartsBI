@@ -1,0 +1,45 @@
+<div class="chart-wrapper">
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fas fa-globe-europe"></i>
+              </div>
+            </div>
+            <select class="form-control" name="country1" (change)="loadData($event)" [(ngModel)]="country1">
+              <option [ngValue]="null" selected >Choose a Country</option>
+              <option *ngFor="let country of countries" [ngValue]="country" >{{country}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fas fa-globe-europe"></i>
+              </div>
+            </div>
+            <select class="form-control" name="country2" (change)="loadData($event)" [(ngModel)]="country2">
+              <option [ngValue]="null" selected >Choose a Country</option>
+              <option *ngFor="let country of countries" [ngValue]="country" >{{country}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [options]="doughnutChartOptions"
+              [plugins]="doughnutChartPlugins"
+              [legend]="doughnutChartLegend"
+              [colors]="doughnutChartColors" >
+      </canvas>
+    </div>
+  </div>
+</div>

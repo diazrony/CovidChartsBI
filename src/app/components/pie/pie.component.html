@@ -1,0 +1,28 @@
+<div class="chart-wrapper">
+  <div class="card">
+    <div class="card-header">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fas fa-globe-europe"></i>
+          </div>
+        </div>
+        <select class="form-control" name="country" (change)="loadData($event)" [(ngModel)]="country">
+          <option [ngValue]="null" selected >Choose a Country</option>
+          <option *ngFor="let country of countries" [ngValue]="country" >{{country}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="card-body">
+      <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [plugins]="pieChartPlugins"
+              [legend]="pieChartLegend"
+              [colors]="pieChartColor">
+      </canvas>
+    </div>
+  </div>
+</div>

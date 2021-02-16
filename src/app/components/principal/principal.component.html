@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-between  align-items-center ">
+  <div class="row">
+    <h1 class="h2">Dashboard</h1>
+  </div>
+  <form>
+    <div class="row form-row d-flex-justify-content-between">
+      <!--Date Init-->
+      <div class="col-md-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fas fa-calendar-week"></i>
+            </div>
+          </div>
+          <input
+                 name="dateInit"
+                 type="text"
+                 placeholder="Date Init"
+                 class="form-control"
+                 bsDatepicker
+                 [bsConfig]="{ isAnimated: true }"
+                 [minDate]="minCovDate"
+                 [maxDate]="dateEnd ? dateEnd : maxCovDate"
+                 [(ngModel)]="dateInit"
+                 (bsValueChange)="loadData($event)"
+          >
+        </div>
+      </div>
+      <!--Date End-->
+      <div class="col-md-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fas fa-calendar-week"></i>
+            </div>
+          </div>
+          <input
+                 name="dateEnd"
+                 type="text"
+                 placeholder="Date End"
+                 class="form-control"
+                 bsDatepicker
+                 [bsConfig]="{ isAnimated: true }"
+                 [minDate]="dateInit ? dateInit : minCovDate"
+                 [maxDate]="maxCovDate"
+                 [(ngModel)]="dateEnd"
+                 (bsValueChange)="loadData($event)"
+          >
+        </div>
+      </div>
+      <!--Country-->
+      <div class="col-md-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fas fa-globe-europe"></i>
+            </div>
+          </div>
+          <select class="form-control" name="country" (change)="loadData($event)" [(ngModel)]="country">
+            <option [ngValue]="null" selected >Choose a Country</option>
+            <option *ngFor="let country of countries" [ngValue]="country" >{{country}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="chart-wrapper">
+  <canvas baseChart width="400" height="100"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+  </canvas>
+</div>
+

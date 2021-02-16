@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "chart-covid"
+  "defaultProject": "chart-covid",
+  "cli": {
+    "analytics": "5703ceba-2268-4788-a1ea-bfc15f9ef508"
+  }
 }

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlCovid: 'https://pomber.github.io/covid19/timeseries.json'
 };
